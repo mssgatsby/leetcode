@@ -120,16 +120,28 @@ const longPrefix = function (strs) {
   }
 };
 // console.log(longPrefix(["flower", "flow", "flight"]));
-const field = document.querySelector(".card");
-async function getCode(word) {
-  let response = await fetch(
-    `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&origin=*&srlimit=25&utf8=&format=json&srsearch=${word}`
-  );
-  const req = await response.json();
-  console.log(req);
-  req.query.search.map((obj) => {
-    field.innerHTML += `<h1><a href = "https://en.wikipedia.org/?curid=${obj.pageid}">${obj.title}</a></h1>
-    <p>${obj.snippet}</p><hr>`;
-  });
-}
-getCode("Tashkent");
+
+//////////////////////////////////////
+// Valid Parentheses
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function (s) {
+  const stack = [];
+  const map = {
+    "(": ")",
+    "[": "]",
+    "{": "}",
+  };
+
+  for (let char of s) {
+    if (map[char]) stack.push(char);
+    else {
+      const top = stack.pop(char);
+      if (map[top] !== char) return false;
+    }
+  }
+  return stack.length === 0;
+};
