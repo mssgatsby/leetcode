@@ -159,7 +159,7 @@ var removeDuplicates = function (nums) {
       k++;
     }
   }
-  console.log(k);
+  return k;
 };
 
 removeDuplicates([1, 2, 3, 3, 3, 4]);
@@ -243,6 +243,25 @@ var removeElement = function (nums, val) {
     if (nums[i] === val) {
       nums.splice(i, 1);
       i--;
+    }
+  }
+  return nums.length;
+};
+
+/////////////////////////////////////////
+// Search Insert Position
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function (nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === target) {
+      return i;
+    } else if (nums[i] > target) {
+      return i;
     }
   }
   return nums.length;
