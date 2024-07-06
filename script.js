@@ -266,3 +266,29 @@ var searchInsert = function (nums, target) {
   }
   return nums.length;
 };
+
+/////////////////////////////
+// Pass the Pillow
+
+/**
+ * @param {number} n
+ * @param {number} time
+ * @return {number}
+ */
+// var passThePillow = function (n, time) {
+//   if (n >= time) {
+//     return time + 1;
+//   }
+//   return 2 * n - time - 1;
+// };
+
+var passThePillow = function (n, time) {
+  let effectiveTime = time % (2 * n - 2);
+  if (effectiveTime < n) {
+    return effectiveTime + 1;
+  } else {
+    return 2 * n - effectiveTime - 1;
+  }
+};
+
+console.log(passThePillow(5, 15));
