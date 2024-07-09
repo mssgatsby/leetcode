@@ -1,5 +1,5 @@
 /////////////////////////////
-// Two sum
+// 1.Two sum
 
 const twoSum = function (nums, target) {
   let numInd = [];
@@ -13,159 +13,8 @@ const twoSum = function (nums, target) {
 
 // console.log(twoSum([3, 2, 4], 6));
 
-///////////////////////////////
-// Palindrome number
-
-const isPalindrome = function (num) {
-  let originalNum = num;
-  let reversedNum = 0;
-
-  while (num > 0) {
-    let lastDigit = num % 10;
-    reversedNum = reversedNum * 10 + lastDigit;
-    num = Math.floor(num / 10);
-  }
-  return originalNum === reversedNum;
-};
-
-// console.log(isPalindrome(-1221));
-
-//////////////////////////////////////
-// Integer to roman
-
-const intToRoman = function (num) {
-  const decimalValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  const romanNumerals = [
-    "M",
-    "CM",
-    "D",
-    "CD",
-    "C",
-    "XC",
-    "L",
-    "XL",
-    "X",
-    "IX",
-    "V",
-    "IV",
-    "I",
-  ];
-
-  let romanCon = "";
-  for (let i = 0; i < decimalValues.length; i++) {
-    while (num >= decimalValues[i]) {
-      romanCon += romanNumerals[i];
-      num -= decimalValues[i];
-    }
-  }
-  return romanCon;
-};
-
-// console.log(intToRoman(104));
-
-//////////////////////////////////
-// Roman to integer
-
-const romanToInt = function (roman) {
-  const romanToDecimal = {
-    I: 1,
-    V: 5,
-    X: 10,
-    L: 50,
-    C: 100,
-    D: 500,
-    M: 1000,
-  };
-
-  let total = 0;
-  let preValue = 0;
-
-  for (let i = roman.length - 1; i >= 0; i--) {
-    const curValue = romanToDecimal[roman[i]];
-
-    if (curValue < preValue) {
-      total -= curValue;
-    } else {
-      total += curValue;
-    }
-    preValue = curValue;
-  }
-  return total;
-};
-
-// console.log(romanToInt("MCMXCIV"));
-
-///////////////////////////////////////
-// First and last position
-
-const searchRange = function (arr, target) {
-  let result = [];
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr.indexOf(target)) {
-      console.log(12);
-    }
-  }
-  return result;
-};
-// console.log(searchRange([5, 7, 7, 8, 8, 10], 9));
-
 /////////////////////////////////////
-// Longest Common Prefix
-
-const longPrefix = function (strs) {
-  let result = "";
-  for (let str of strs) {
-    console.log(str);
-  }
-};
-// console.log(longPrefix(["flower", "flow", "flight"]));
-
-//////////////////////////////////////
-// Valid Parentheses
-
-/**
- * @param {string} s
- * @return {boolean}
- */
-var isValid = function (s) {
-  const stack = [];
-  const map = {
-    "(": ")",
-    "[": "]",
-    "{": "}",
-  };
-
-  for (let char of s) {
-    if (map[char]) stack.push(char);
-    else {
-      const top = stack.pop(char);
-      if (map[top] !== char) return false;
-    }
-  }
-  return stack.length === 0;
-};
-
-////////////////////////////////////////
-// Remove Duplicates from Sorted Array
-
-var removeDuplicates = function (nums) {
-  if (nums.length === 0) return 0;
-
-  let k = 1;
-  for (let i = 1; i < nums.length; i++) {
-    if (nums[k - 1] !== nums[i]) {
-      nums[k] = nums[i];
-      k++;
-    }
-  }
-  return k;
-};
-
-removeDuplicates([1, 2, 3, 3, 3, 4]);
-
-/////////////////////////////////////
-// Adding two list
+// 2.Add Two Numbers
 
 /**
  * Definition for singly-linked list.
@@ -210,8 +59,103 @@ var addTwoNumbers = function (l1, l2) {
   return dummy.next;
 };
 
+///////////////////////////////
+// 9.Palindrome number
+
+const isPalindrome = function (num) {
+  let originalNum = num;
+  let reversedNum = 0;
+
+  while (num > 0) {
+    let lastDigit = num % 10;
+    reversedNum = reversedNum * 10 + lastDigit;
+    num = Math.floor(num / 10);
+  }
+  return originalNum === reversedNum;
+};
+
+// console.log(isPalindrome(-1221));
+
+//////////////////////////////////////
+// 12.Integer to roman
+
+const intToRoman = function (num) {
+  const decimalValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  const romanNumerals = [
+    "M",
+    "CM",
+    "D",
+    "CD",
+    "C",
+    "XC",
+    "L",
+    "XL",
+    "X",
+    "IX",
+    "V",
+    "IV",
+    "I",
+  ];
+
+  let romanCon = "";
+  for (let i = 0; i < decimalValues.length; i++) {
+    while (num >= decimalValues[i]) {
+      romanCon += romanNumerals[i];
+      num -= decimalValues[i];
+    }
+  }
+  return romanCon;
+};
+
+// console.log(intToRoman(104));
+
+//////////////////////////////////
+// 13.Roman to Integer
+
+const romanToInt = function (roman) {
+  const romanToDecimal = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let total = 0;
+  let preValue = 0;
+
+  for (let i = roman.length - 1; i >= 0; i--) {
+    const curValue = romanToDecimal[roman[i]];
+
+    if (curValue < preValue) {
+      total -= curValue;
+    } else {
+      total += curValue;
+    }
+    preValue = curValue;
+  }
+  return total;
+};
+
+///////////////////////////////////////
+// First and Last Position
+
+const searchRange = function (arr, target) {
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.indexOf(target)) {
+      console.log(12);
+    }
+  }
+  return result;
+};
+// console.log(searchRange([5, 7, 7, 8, 8, 10], 9));
+
 ////////////////////////////////////
-// Longest common prefix
+// 14.Longest Common Prefix
 
 /**
  * @param {string[]} strs
@@ -230,8 +174,51 @@ var longestCommonPrefix = function (strs) {
   return prefix;
 };
 
+//////////////////////////////////////
+// 20.Valid Parentheses
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function (s) {
+  const stack = [];
+  const map = {
+    "(": ")",
+    "[": "]",
+    "{": "}",
+  };
+
+  for (let char of s) {
+    if (map[char]) stack.push(char);
+    else {
+      const top = stack.pop(char);
+      if (map[top] !== char) return false;
+    }
+  }
+  return stack.length === 0;
+};
+
+////////////////////////////////////////
+// 26.Remove Duplicates from Sorted Array
+
+var removeDuplicates = function (nums) {
+  if (nums.length === 0) return 0;
+
+  let k = 1;
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[k - 1] !== nums[i]) {
+      nums[k] = nums[i];
+      k++;
+    }
+  }
+  return k;
+};
+
+removeDuplicates([1, 2, 3, 3, 3, 4]);
+
 ///////////////////////////////////////
-// Remove Element
+// 27.Remove Element
 
 /**
  * @param {number[]} nums
@@ -248,8 +235,26 @@ var removeElement = function (nums, val) {
   return nums.length;
 };
 
+////////////////////////////////////
+// 28.Find the Index of the First Occurrence in a String
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr = function (haystack, needle) {
+  if (needle.length > haystack.length) return -1;
+  for (let i = 0; i <= haystack.length - needle.length; i++) {
+    if (haystack.slice(i, i + needle.length) == needle) {
+      return i;
+    }
+  }
+  return -1;
+};
+
 /////////////////////////////////////////
-// Search Insert Position
+// 35.Search Insert Position
 
 /**
  * @param {number[]} nums
@@ -268,7 +273,7 @@ var searchInsert = function (nums, target) {
 };
 
 /////////////////////////////
-// Pass the Pillow
+// 2582.Pass the Pillow
 
 /**
  * @param {number} n
@@ -291,20 +296,21 @@ var passThePillow = function (n, time) {
   }
 };
 
-////////////////////////////////////
-// Find the Index of the First Occurrence in a String
+/////////////////////////////////
+// 2620.Counter
 
 /**
- * @param {string} haystack
- * @param {string} needle
- * @return {number}
+ * @param {number} n
+ * @return {Function} counter
  */
-var strStr = function (haystack, needle) {
-  if (needle.length > haystack.length) return -1;
-  for (let i = 0; i <= haystack.length - needle.length; i++) {
-    if (haystack.slice(i, i + needle.length) == needle) {
-      return i;
-    }
-  }
-  return -1;
+var createCounter = function (n) {
+  --n;
+  return function () {
+    return ++n;
+  };
 };
+
+// const counter = createCounter(10)
+// counter() // 10
+// counter() // 11
+// counter() // 12
