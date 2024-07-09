@@ -272,6 +272,16 @@ var searchInsert = function (nums, target) {
   return nums.length;
 };
 
+//////////////////////////////
+// 2235.Add Two Integers
+
+/**
+ * @param {number} num1
+ * @param {number} num2
+ * @return {number}
+ */
+var sum = (num1, num2) => num1 + num2;
+
 /////////////////////////////
 // 2582.Pass the Pillow
 
