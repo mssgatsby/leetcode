@@ -284,6 +284,20 @@ var searchInsert = function (nums, target) {
   return nums.length;
 };
 
+/////////////////////////////////////////
+// 58.Length of Last Word
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function (s) {
+  let trimmedString = s.trim();
+  let arr = trimmedString.split(" ");
+  let lastWord = arr[arr.length - 1];
+  return lastWord.length;
+};
+
 //////////////////////////////
 // 2235.Add Two Integers
 
