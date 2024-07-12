@@ -298,6 +298,19 @@ var lengthOfLastWord = function (s) {
   return lastWord.length;
 };
 
+//////////////////////////////////////
+// 66. Plus One
+
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+var plusOne = function (digits) {
+  let numberStr = digits.join("");
+  let incrementedNumber = BigInt(numberStr) + 1n;
+  return incrementedNumber.toString().split("").map(Number);
+};
+
 //////////////////////////////
 // 2235.Add Two Integers
 
