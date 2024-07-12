@@ -311,6 +311,19 @@ var plusOne = function (digits) {
   return incrementedNumber.toString().split("").map(Number);
 };
 
+////////////////////////////////////
+// 67. Add Binary
+
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+var addBinary = function (a, b) {
+  let decSum = BigInt(`0b${a}`) + BigInt(`0b${b}`);
+  return decSum.toString(2);
+};
+
 //////////////////////////////
 // 2235.Add Two Integers
 
