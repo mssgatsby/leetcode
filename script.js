@@ -336,6 +336,30 @@ var mySqrt = function (x) {
   return Math.floor(y);
 };
 
+///////////////////////////////////////////
+// 70. Climbing Stairs
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function (n) {
+  if (n == 1) {
+    return 1;
+  }
+
+  let oneStep = 1;
+  let twoStep = 1;
+  total = 0;
+
+  for (let i = 2; i <= n; i++) {
+    total = oneStep + twoStep;
+    twoStep = oneStep;
+    oneStep = total;
+  }
+  return oneStep;
+};
+
 //////////////////////////////
 // 2235.Add Two Integers
 
