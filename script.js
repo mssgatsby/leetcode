@@ -324,6 +324,18 @@ var addBinary = function (a, b) {
   return decSum.toString(2);
 };
 
+//////////////////////////////////////
+// 69. Sqrt(x)
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function (x) {
+  let y = Math.sqrt(x);
+  return Math.floor(y);
+};
+
 //////////////////////////////
 // 2235.Add Two Integers
 
