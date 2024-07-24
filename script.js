@@ -360,6 +360,34 @@ var climbStairs = function (n) {
   return oneStep;
 };
 
+///////////////////////////////////////
+// 83. Remove Duplicates from Sorted List
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteDuplicates = function (head) {
+  if (!head) return;
+  if (!head.next) return head;
+  let temp = head;
+  while (temp.next) {
+    if (temp.value === temp.next.value) {
+      temp.next = temp.next.next;
+    } else {
+      temp = temp.next;
+    }
+  }
+  return head;
+};
+
 //////////////////////////////
 // 2235.Add Two Integers
 
