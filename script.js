@@ -420,6 +420,24 @@ var merge = function (nums1, m, nums2, n) {
   }
 };
 
+////////////////////////////////////////////
+// 125. Valid Palindrome
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome2 = function (s) {
+  const cleanString = s.replace(/[^a-zA-Z0-9]/g, "");
+  const lowerCase = cleanString.toLowerCase();
+
+  let str = "";
+  for (let i = lowerCase.length - 1; i >= 0; i--) {
+    str = str + lowerCase[i];
+  }
+  return str === lowerCase;
+};
+
 //////////////////////////////
 // 2235.Add Two Integers
 
