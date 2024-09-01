@@ -439,6 +439,22 @@ var isPalindrome2 = function (s) {
 };
 
 //////////////////////////////
+// 136. Single Number
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNumber = function (nums) {
+  let result = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    result = result ^ nums[i];
+  }
+  return result;
+};
+
+//////////////////////////////
 // 2235.Add Two Integers
 
 /**
@@ -490,3 +506,21 @@ var createCounter = function (n) {
 // counter() // 10
 // counter() // 11
 // counter() // 12
+
+function steps(arr, n) {
+  let low = arr[0];
+  let high = arr[arr.length - 1];
+  while (low <= high) {
+    let mid = Math.floor((low + high) / 2);
+    if (n < mid) {
+      high = mid - 1;
+    } else if (n > mid) {
+      low = mid + 1;
+    } else {
+      return arr.indexOf(mid);
+    }
+  }
+  return null;
+}
+
+console.log(steps([0, 1, 2, 3, 9, 10, 12, 34], 12));
